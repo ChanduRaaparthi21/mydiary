@@ -15,11 +15,9 @@ pipeline
 stage('Build') {
 
             steps {
- git url: 'https://github.com/cyrille-leclerc/multi-module-maven-project'
-        withMaven {
-          sh "mvn clean verify"
+                sh 'mvn -B -DskipTests clean package'
             }
-        }
+        
 }
 stage('unit test'){
 steps{
