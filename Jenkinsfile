@@ -56,10 +56,16 @@ stage('prod deployment'){
 
 stage ('email'){
     steps{
-
+post {
 always {
-        emailext body: 'pipeline', subject: 'mailindication', to: 'vamsikrishnachintada99@gmail.com'
+        emailext (
+            subject: 'mailindication',
+            body: 'The Build is complete and success'
+            to: 'vamsienjoy1@gmail.com'
+            attachmentspattern: '**/*.log'
+            )
 } 
+}
 }
 }
 }
